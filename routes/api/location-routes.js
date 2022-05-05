@@ -5,12 +5,19 @@ const { Location} = require('../../models');
 
 router.get('/', (req, res) => {
   // find all locations
-  try {
-    const locationData = await Location.findAll();
-    res.status(200).json(locationData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  //try {
+  //  const locationData = await Location.findAll();
+  //  res.status(200).json(locationData);
+  //} catch (err) {
+  //  res.status(500).json(err);
+  //}
+  Location.findAll().then((err,res)=>{
+    if (err) {
+      throw err
+    } else {
+      res.status(200).json(locationData);
+    }
+  })
 });
 
 router.get('/:id', (req, res) => {

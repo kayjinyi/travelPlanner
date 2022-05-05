@@ -13,12 +13,12 @@ Trip.belongsTo(Traveller, {
   onDelete: "CASCADE",
 });
 
-// Location.belongsTo(Traveller, {
-//   foreignKey: "location_id",
-// });
-// Traveller.hasMany(Location, {
-//   foreignKey: "location_id",
-// });
+Location.belongsTo(Traveller, {
+  foreignKey: "location_id",
+});
+Traveller.hasMany(Location, {
+  foreignKey: "location_id",
+});
 
 Trip.belongsTo(Location, {
   foreignKey: "location_id",
